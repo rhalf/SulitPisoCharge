@@ -22,6 +22,7 @@ Button buttons[4] = {Button(4), Button(5), Button(6), Button(7)};
 Helper helper = Helper();
 LiquidCrystal_I2C lcd(0x27, 25, 4);
 
+String space = " ";
 void cbMinute() {
   //standby power consumption of device is 3watts therefore
   float result = 5000.0 / 60.0;
@@ -31,66 +32,66 @@ void cbMinute() {
 void cbLcd1602() {
   if (Timer::getSeconds() < 3) {
     lcd.setCursor(0, 0);
-    lcd.print(helper.padding(Device::getCompany(), " ", 16));
+    lcd.print(helper.padding(Device::getCompany(), space, 16));
     lcd.setCursor(0, 1);
-    lcd.print(helper.padding(Device::getCountry(), " ", 16));
+    lcd.print(helper.padding(Device::getCountry(), space, 16));
   } else if (Timer::getSeconds() >= 3 && Timer::getSeconds() < 6) {
     lcd.setCursor(0, 0);
-    lcd.print(helper.padding(Device::getTransaction(), " ", 16));
+    lcd.print(helper.padding(Device::getTransaction(), space, 16));
     lcd.setCursor(8, 0);
     lcd.print(storage.getCurrentTransaction());
     lcd.setCursor(0, 1);
-    lcd.print(helper.padding(Device::getGross(), " ", 16));
+    lcd.print(helper.padding(Device::getGross(), space, 16));
     lcd.setCursor(8, 1);
     lcd.print(helper.toUtf8Currency(storage.getCurrentGross()));
   }  else if (Timer::getSeconds() >= 6 && Timer::getSeconds() < 9) {
     lcd.setCursor(0, 0);
-    lcd.print(helper.padding(Device::getServingTime(), " ", 16));
+    lcd.print(helper.padding(Device::getServingTime(), space, 16));
     lcd.setCursor(8, 0);
-    lcd.print(helper.padding(helper.toUtf8Time(storage.getCurrentServe()), " ", 16));
+    lcd.print(helper.padding(helper.toUtf8Time(storage.getCurrentServe()), space, 16));
     lcd.setCursor(0, 1);
-    lcd.print(helper.padding(Device::getCredit(), " ", 16));
+    lcd.print(helper.padding(Device::getCredit(), space, 16));
     lcd.setCursor(8, 1);
     lcd.print(helper.toUtf8Currency(storage.getCurrentCredit()));
   } else if (Timer::getSeconds() >= 9 && Timer::getSeconds() < 12) {
     lcd.setCursor(0, 0);
-    lcd.print(helper.padding(Device::getPower(), " ", 16));
+    lcd.print(helper.padding(Device::getPower(), space, 16));
     lcd.setCursor(8, 0);
     lcd.print(storage.getCurrentPower());
     lcd.setCursor(0, 1);
-    lcd.print(helper.padding("", " ", 16));
+    lcd.print(helper.padding("", space, 16));
 
   } else {
     lcd.setCursor(0, 0);
-    lcd.print(helper.padding(Device::getCoin(), " ", 16));
+    lcd.print(helper.padding(Device::getCoin(), space, 16));
     lcd.setCursor(8, 0);
-    lcd.print(helper.padding(helper.toUtf8Currency(coinAcceptor.coinPulse), " ", 16));
+    lcd.print(helper.padding(helper.toUtf8Currency(coinAcceptor.coinPulse), space, 16));
 
 
     if (terminals[0].timeLapse > 0) {
       lcd.setCursor(0, 1);
-      lcd.print(helper.padding(Device::getTime(), " ", 16));
+      lcd.print(helper.padding(Device::getTime(), space, 16));
       lcd.setCursor(8, 1);
-      lcd.print(helper.padding(helper.toUtf8Time(terminals[0].timeLapse), " ", 16));
+      lcd.print(helper.padding(helper.toUtf8Time(terminals[0].timeLapse), space, 16));
 
     } else {
       if (storage.getMode() == 0) {
         if (coinAcceptor.coinPulse > 0) {
           lcd.setCursor(0, 1);
-          lcd.print(helper.padding(Device::getTime(), " ", 16));
+          lcd.print(helper.padding(Device::getTime(), space, 16));
           lcd.setCursor(8, 1);
-          lcd.print(helper.padding(helper.toUtf8Time(coinAcceptor.coinPulse * storage.getRate()), " ", 16));
+          lcd.print(helper.padding(helper.toUtf8Time(coinAcceptor.coinPulse * storage.getRate()), space, 16));
         } else {
           lcd.setCursor(0, 1);
-          lcd.print(helper.padding(Device::getTime(), " ", 16));
+          lcd.print(helper.padding(Device::getTime(), space, 16));
           lcd.setCursor(8, 1);
-          lcd.print(helper.padding(Device::getVacant(), " ", 16));
+          lcd.print(helper.padding(Device::getVacant(), space, 16));
         }
       } else {
         lcd.setCursor(0, 1);
-        lcd.print(helper.padding(Device::getTime(), " ", 16));
+        lcd.print(helper.padding(Device::getTime(), space, 16));
         lcd.setCursor(8, 1);
-        lcd.print(helper.padding(Device::getFree(), " ", 16));
+        lcd.print(helper.padding(Device::getFree(), space, 16));
       }
     }
   }
@@ -265,6 +266,7 @@ void onLongPressed(uint8_t pin) {
     if (buttons[index].getPin() == pin) {
       buzzer.play();
       terminals[index].reset();
+      //u8g2.setPowerSave(1);
     }
   }
 }
