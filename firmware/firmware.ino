@@ -5,7 +5,7 @@
  *  Created by  :   Rhalf Wendel Caacbay
  *  Email       :   rhalfcaacbay@gmail.com
  *  
-*/
+ */
 #include<U8g2lib.h>
 #include<Timer.h>
 #include<Terminal.h>
@@ -30,23 +30,24 @@ Helper helper = Helper();
 
 uint8_t index = 0;
 String space = " ";
-bool isFull = false;
+bool isLimit = false;
 
 void cbLimit() {
   uint32_t gross = storage.getCurrentGross();
   uint32_t limit = storage.getLimit();
   if (gross >= limit) {
-    isFull = true;
+    isLimit = true;
     buzzer.play();
   } else {
-    isFull = false;
+    isLimit = false;
   }
 }
 
 void cbPower() {
   //standby power consumption of device is 3watts therefore
-  //float result = 5000.0 / 60.0;
-  storage.incrementPower(83);
+  //float power = 3000.0 / 60.0;
+  //power = 50
+  storage.incrementPower(50);
 }
 
 void cbDisplay() {
@@ -91,13 +92,11 @@ void cbLcd12864() {
       u8g2.setCursor(x, 10);
       u8g2.print(Device::getCoin());
       
-      if (isFull) u8g2.drawUTF8(x + 25, 10, Device::getFull());
+      if (isLimit) u8g2.drawUTF8(x + 25, 10, Device::getLimit());
       
       u8g2.setCursor(x + 66, 10);
       u8g2.print(helper.toUtf8Currency(coinAcceptor.coinPulse));
-      
-  
-      
+     
       u8g2.setCursor(x, 20);
       u8g2.print(Device::getTime());
       u8g2.setCursor(x + 66, 20);
@@ -214,6 +213,7 @@ void onShortPressed(uint8_t pin) {
 
       //charger consumes 20watts per hour
       //float power = (20000.0 / 3600.0) * timeValue;
+      //power = 5.56
       storage.incrementPower(6 * timeValue);
 
       //trigger
@@ -228,7 +228,6 @@ void onLongPressed(uint8_t pin) {
     if (buttons[index].getPin() == pin) {
       buzzer.play();
       terminals[index].reset();
-      //u8g2.setPowerSave(1);
     }
   }
 }
