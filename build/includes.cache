@@ -1,0 +1,607 @@
+[
+  {
+    "Sourcefile": "",
+    "Include": "",
+    "Includepath": "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\cores\\arduino"
+  },
+  {
+    "Sourcefile": "",
+    "Include": "",
+    "Includepath": "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\variants\\eightanaloginputs"
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\AppData\\Local\\Temp\\arduino_build_594970\\sketch\\spc001.ino.cpp",
+    "Include": "U8g2lib.h",
+    "Includepath": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src"
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\AppData\\Local\\Temp\\arduino_build_594970\\sketch\\spc001.ino.cpp",
+    "Include": "Timer.h",
+    "Includepath": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\Timer"
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\AppData\\Local\\Temp\\arduino_build_594970\\sketch\\spc001.ino.cpp",
+    "Include": "Terminal.h",
+    "Includepath": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\Terminal"
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\AppData\\Local\\Temp\\arduino_build_594970\\sketch\\spc001.ino.cpp",
+    "Include": "Buzzer.h",
+    "Includepath": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\Buzzer"
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\AppData\\Local\\Temp\\arduino_build_594970\\sketch\\spc001.ino.cpp",
+    "Include": "BillCoinAcceptor.h",
+    "Includepath": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\BillCoinAcceptor"
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\AppData\\Local\\Temp\\arduino_build_594970\\sketch\\spc001.ino.cpp",
+    "Include": "Storage.h",
+    "Includepath": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\Storage"
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\AppData\\Local\\Temp\\arduino_build_594970\\sketch\\spc001.ino.cpp",
+    "Include": "EEPROM.h",
+    "Includepath": "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\libraries\\EEPROM\\src"
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\AppData\\Local\\Temp\\arduino_build_594970\\sketch\\spc001.ino.cpp",
+    "Include": "Protocol.h",
+    "Includepath": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\Protocol"
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\AppData\\Local\\Temp\\arduino_build_594970\\sketch\\spc001.ino.cpp",
+    "Include": "SoftwareSerial.h",
+    "Includepath": "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\libraries\\SoftwareSerial\\src"
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\AppData\\Local\\Temp\\arduino_build_594970\\sketch\\spc001.ino.cpp",
+    "Include": "Helper.h",
+    "Includepath": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\Helper"
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\AppData\\Local\\Temp\\arduino_build_594970\\sketch\\spc001.ino.cpp",
+    "Include": "Button.h",
+    "Includepath": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\Button"
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\AppData\\Local\\Temp\\arduino_build_594970\\sketch\\spc001.ino.cpp",
+    "Include": "Device.h",
+    "Includepath": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\Device"
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\AppData\\Local\\Temp\\arduino_build_594970\\sketch\\spc001.ino.cpp",
+    "Include": "WatchDog.h",
+    "Includepath": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\WatchDog"
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\AppData\\Local\\Temp\\arduino_build_594970\\sketch\\spc001.ino.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\U8x8lib.cpp",
+    "Include": "SPI.h",
+    "Includepath": "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\libraries\\SPI\\src"
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\U8x8lib.cpp",
+    "Include": "Wire.h",
+    "Includepath": "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\libraries\\Wire\\src"
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\U8x8lib.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8g2_bitmap.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8g2_box.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8g2_buffer.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8g2_circle.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8g2_cleardisplay.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8g2_d_memory.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8g2_d_setup.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8g2_font.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8g2_fonts.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8g2_hvline.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8g2_input_value.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8g2_intersection.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8g2_kerning.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8g2_line.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8g2_ll_hvline.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8g2_message.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8g2_polygon.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8g2_selection_list.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8g2_setup.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8log.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8log_u8g2.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8log_u8x8.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_8x8.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_byte.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_cad.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_a2printer.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_il3820_296x128.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_ist3020.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_ks0108.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_lc7981.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_ld7032_60x32.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_ls013b7dh03.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_max7219.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_pcd8544_84x48.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_pcf8812.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_pcf8814_hx1230.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_sbn1661.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_sed1330.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_sh1106_64x32.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_sh1106_72x40.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_sh1107.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_sh1108.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_sh1122.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_ssd1305.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_ssd1306_128x32.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_ssd1306_128x64_noname.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_ssd1306_48x64.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_ssd1306_64x32.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_ssd1306_64x48.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_ssd1306_96x16.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_ssd1309.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_ssd1317.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_ssd1318.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_ssd1322.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_ssd1325.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_ssd1326.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_ssd1327.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_ssd1329.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_ssd1606_172x72.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_ssd1607_200x200.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_st75256.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_st7565.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_st7567.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_st7586s_erc240160.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_st7586s_s028hn118a.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_st7588.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_st7920.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_t6963.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_uc1601.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_uc1604.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_uc1608.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_uc1610.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_uc1611.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_uc1617.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_uc1638.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_uc1701_dogs102.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_d_uc1701_mini12864.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_debounce.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_display.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_fonts.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_gpio.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_input_value.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_message.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_selection_list.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_setup.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_string.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_u16toa.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\U8g2\\src\\clib\\u8x8_u8toa.c",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\Timer\\Timer.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\Terminal\\Terminal.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\Buzzer\\Buzzer.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\BillCoinAcceptor\\BillCoinAcceptor.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\Storage\\Storage.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\Protocol\\Protocol.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\libraries\\SoftwareSerial\\src\\SoftwareSerial.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\Helper\\Helper.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\Button\\Button.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\Device\\Device.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Users\\rhalf\\Documents\\Arduino\\libraries\\WatchDog\\WatchDog.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\libraries\\SPI\\src\\SPI.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\libraries\\Wire\\src\\Wire.cpp",
+    "Include": "",
+    "Includepath": ""
+  },
+  {
+    "Sourcefile": "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\libraries\\Wire\\src\\utility\\twi.c",
+    "Include": "",
+    "Includepath": ""
+  }
+]

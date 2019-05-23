@@ -1,11 +1,11 @@
 /*
- *  Project     :   Sulit Piso Charge
- *  Version     :   2.0
- *  
- *  Created by  :   Rhalf Wendel Caacbay
- *  Email       :   rhalfcaacbay@gmail.com
- *  
- */
+    Project     :   Sulit Piso Charge
+    Version     :   2.0
+
+    Created by  :   Rhalf Wendel Caacbay
+    Email       :   rhalfcaacbay@gmail.com
+
+*/
 #include<U8g2lib.h>
 #include<Timer.h>
 #include<Terminal.h>
@@ -82,7 +82,7 @@ void cbLcd12864() {
       u8g2.drawUTF8( x, 52, Device::getCredit());
       u8g2.setCursor( x + 48, 52);
       u8g2.print(helper.toUtf8Currency(storage.getCurrentCredit()));
-    
+
       u8g2.drawUTF8( x, 62, Device::getPower());
       u8g2.setCursor( x + 48, 62);
       u8g2.print(storage.getCurrentPower() / 1000.0);
@@ -91,12 +91,12 @@ void cbLcd12864() {
 
       u8g2.setCursor(x, 10);
       u8g2.print(Device::getCoin());
-      
+
       if (isLimit) u8g2.drawUTF8(x + 25, 10, Device::getLimit());
-      
+
       u8g2.setCursor(x + 66, 10);
       u8g2.print(helper.toUtf8Currency(coinAcceptor.coinPulse));
-     
+
       u8g2.setCursor(x, 20);
       u8g2.print(Device::getTime());
       u8g2.setCursor(x + 66, 20);
@@ -234,6 +234,13 @@ void onLongPressed(uint8_t pin) {
 
 void setup() {
   // put your setup code here, to run once:
+
+  if (storage.getFirst() != 1024) {
+    storage.format(20190523);
+    storage.setFirmware(10);
+    storage.setFirst(1024);
+  }
+  
   buzzer.play();
   Serial.begin(9600);
 
