@@ -1,24 +1,34 @@
+# 1 "C:\\Users\\rhalf\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino"
+# 1 "C:\\Users\\rhalf\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino"
 /*
+
     Project     :   Sulit Piso Charge
+
     Version     :   2.0
 
+
+
     Created by  :   Rhalf Wendel Caacbay
+
     Email       :   rhalfcaacbay@gmail.com
 
-*/
-#include<U8g2lib.h>
-#include<Timer.h>
-#include<Terminal.h>
-#include<Buzzer.h>
-#include<BillCoinAcceptor.h>
-#include<Storage.h>
-#include<Protocol.h>
-#include<Button.h>
-#include<Device.h>
-#include<Helper.h>
-#include<WatchDog.h>
 
-U8G2_ST7920_128X64_1_SW_SPI u8g2(U8G2_R0, /* clock=*/ 12, /* data=*/ 11, /* CS=*/ 10, /* reset=*/ 100);
+
+*/
+# 9 "C:\\Users\\rhalf\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino"
+# 10 "C:\\Users\\rhalf\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
+# 11 "C:\\Users\\rhalf\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
+# 12 "C:\\Users\\rhalf\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
+# 13 "C:\\Users\\rhalf\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
+# 14 "C:\\Users\\rhalf\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
+# 15 "C:\\Users\\rhalf\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
+# 16 "C:\\Users\\rhalf\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
+# 17 "C:\\Users\\rhalf\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
+# 18 "C:\\Users\\rhalf\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
+
+# 20 "C:\\Users\\rhalf\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
+
+U8G2_ST7920_128X64_1_SW_SPI u8g2((&u8g2_cb_r0), /* clock=*/ 12, /* data=*/ 11, /* CS=*/ 10, /* reset=*/ 100);
 Timer tDisplay(Timer::MILLIS), tInterrupt(Timer::MILLIS), tLimit(Timer::MILLIS), tPower(Timer::MILLIS);
 Terminal terminals[4] = {Terminal(A0), Terminal(A1), Terminal(A2), Terminal(A3)};
 Buzzer buzzer = Buzzer(13, 1875, 50);
@@ -82,7 +92,7 @@ void cbLcd12864() {
       u8g2.drawUTF8( x, 40, Device::getCredit());
       u8g2.setCursor( x + 48, 40);
       u8g2.print(helper.toUtf8Currency(storage.getCurrentCredit()));
-      
+
       u8g2.drawUTF8( x, 50, Device::getServe());
       u8g2.setCursor( x + 48, 50);
       u8g2.print(helper.toUtf8Time(storage.getCurrentServe()));
