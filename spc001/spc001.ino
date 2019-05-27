@@ -33,9 +33,9 @@ String space = " ";
 bool isLimit = false;
 
 void cbLimit() {
-  uint32_t gross = storage.getCurrentGross();
+  uint32_t amount = storage.getCurrentAmount();
   uint32_t limit = storage.getLimit();
-  if (gross >= limit) {
+  if (amount >= limit) {
     isLimit = true;
     buzzer.play();
   } else {
@@ -63,28 +63,32 @@ void cbLcd12864() {
       u8g2.drawXBMP( 0, 0, 128, 64, Device::LOGO);
     } else if (Timer::getSeconds() >= 3 && Timer::getSeconds() < 12) {
 
-      u8g2.drawUTF8( 40, 10, Device::getCurrent());
+      u8g2.setCursor(x, 10);
+      u8g2.print(Device::getTrans());
+      u8g2.print("A");
+      u8g2.setCursor( x + 48, 10);
+      u8g2.print(storage.getCurrentTransA());
 
-      u8g2.drawHLine(0, 12, 128);
+      u8g2.drawUTF8( x, 20, Device::getAmount());
+      u8g2.setCursor( x + 48, 20);
+      u8g2.print(helper.toUtf8Currency(storage.getCurrentAmount()));
 
-      u8g2.drawUTF8( x, 22, Device::getTransaction());
-      u8g2.setCursor( x + 48, 22);
-      u8g2.print(storage.getCurrentTransaction());
+      u8g2.setCursor( x, 30);
+      u8g2.print(Device::getTrans());
+      u8g2.print("C");
+      u8g2.setCursor( x + 48, 30);
+      u8g2.print(storage.getCurrentTransC());
 
-      u8g2.drawUTF8( x, 32, Device::getGross());
-      u8g2.setCursor( x + 48, 32);
-      u8g2.print(helper.toUtf8Currency(storage.getCurrentGross()));
-
-      u8g2.drawUTF8( x, 42, Device::getServingTime());
-      u8g2.setCursor( x + 48, 42);
+      u8g2.drawUTF8( x, 40, Device::getCredit());
+      u8g2.setCursor( x + 48, 40);
+      u8g2.print(helper.toUtf8Currency(storage.getCurrentCredit()));
+      
+      u8g2.drawUTF8( x, 50, Device::getServe());
+      u8g2.setCursor( x + 48, 50);
       u8g2.print(helper.toUtf8Time(storage.getCurrentServe()));
 
-      u8g2.drawUTF8( x, 52, Device::getCredit());
-      u8g2.setCursor( x + 48, 52);
-      u8g2.print(helper.toUtf8Currency(storage.getCurrentCredit()));
-
-      u8g2.drawUTF8( x, 62, Device::getPower());
-      u8g2.setCursor( x + 48, 62);
+      u8g2.drawUTF8( x, 60, Device::getPower());
+      u8g2.setCursor( x + 48, 60);
       u8g2.print(storage.getCurrentPower() / 1000.0);
 
     } else {
@@ -165,19 +169,20 @@ void serialEvent() {
     char chr = (char) Serial.read();
     protocol.buffer += chr;
     if (chr == '\n') {
-      Serial.print("<<" + protocol.buffer);
-      protocol.interpret();
       Serial.print(">>" + protocol.buffer);
+      protocol.interpret();
+      Serial.print("<<" + protocol.buffer);
       protocol.buffer = "";
     }
   }
 }
 
 void onReceived(void) {
-  Serial.print("<<" + protocol.buffer);
-  protocol.interpret();
-  protocol.send();
   Serial.print(">>" + protocol.buffer);
+  protocol.interpret();
+  Serial.print("<<" + protocol.buffer);
+  protocol.print(protocol.buffer);
+  protocol.buffer = "";
 }
 
 void onCoin() {
@@ -204,12 +209,8 @@ void onShortPressed(uint8_t pin) {
       uint32_t timeValue = coinAcceptor.coinPulse * storage.getRate();
 
       //add to record
-      if (storage.getMode() == 0) storage.incrementGross(coinValue);
+      if (storage.getMode() == 0) storage.incrementAmount(coinValue);
       if (storage.getMode() >= 1) storage.incrementCredit(coinValue);
-
-      storage.incrementTransaction(1);
-      storage.incrementServe(timeValue);
-
 
       //charger consumes 20watts per hour
       //float power = (20000.0 / 3600.0) * timeValue;
@@ -236,15 +237,15 @@ void setup() {
   // put your setup code here, to run once:
 
   if (storage.getFirst() != 1024) {
-    storage.format(20190523);
+    storage.format(190523);
     storage.setFirmware(10);
     storage.setFirst(1024);
   }
-  
+
   buzzer.play();
   Serial.begin(9600);
 
-  protocol.setOnReceived(onReceived);
+  protocol.onReceived(onReceived);
   protocol.begin(9600);
 
   u8g2.begin();
