@@ -1,4 +1,4 @@
-C:\Users\RHALFC~1\AppData\Local\Temp\arduino_build_71882\libraries\BillCoinAcceptor\BillCoinAcceptor.cpp.o: \
+C:\Users\RHALFC~1\AppData\Local\Temp\arduino_build_440004\libraries\BillCoinAcceptor\BillCoinAcceptor.cpp.o: \
  C:\Users\rhalfcaacbay\Documents\Arduino\libraries\BillCoinAcceptor\BillCoinAcceptor.cpp \
  C:\Users\rhalfcaacbay\Documents\Arduino\libraries\BillCoinAcceptor\BillCoinAcceptor.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/Arduino.h \
