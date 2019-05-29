@@ -1,6 +1,6 @@
-C:\Users\RHALFC~1\AppData\Local\Temp\arduino_build_71882\libraries\Buzzer\Buzzer.cpp.o: \
- C:\Users\rhalfcaacbay\Documents\Arduino\libraries\Buzzer\Buzzer.cpp \
- C:\Users\rhalfcaacbay\Documents\Arduino\libraries\Buzzer\Buzzer.h \
+C:\Users\rhalf\AppData\Local\Temp\arduino_build_92814\libraries\Buzzer\Buzzer.cpp.o: \
+ C:\Users\rhalf\Documents\Arduino\libraries\Buzzer\Buzzer.cpp \
+ C:\Users\rhalf\Documents\Arduino\libraries\Buzzer\Buzzer.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/Arduino.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/binary.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/WCharacter.h \

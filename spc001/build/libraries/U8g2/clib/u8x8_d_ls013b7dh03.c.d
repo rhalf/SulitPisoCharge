@@ -1,3 +1,3 @@
-C:\Users\RHALFC~1\AppData\Local\Temp\arduino_build_71882\libraries\U8g2\clib\u8x8_d_ls013b7dh03.c.o: \
- C:\Users\rhalfcaacbay\Documents\Arduino\libraries\U8g2\src\clib\u8x8_d_ls013b7dh03.c \
- C:\Users\rhalfcaacbay\Documents\Arduino\libraries\U8g2\src\clib\u8x8.h
+C:\Users\rhalf\AppData\Local\Temp\arduino_build_92814\libraries\U8g2\clib\u8x8_d_ls013b7dh03.c.o: \
+ C:\Users\rhalf\Documents\Arduino\libraries\U8g2\src\clib\u8x8_d_ls013b7dh03.c \
+ C:\Users\rhalf\Documents\Arduino\libraries\U8g2\src\clib\u8x8.h

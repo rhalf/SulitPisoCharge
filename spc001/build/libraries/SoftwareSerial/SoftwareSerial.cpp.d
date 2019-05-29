@@ -1,4 +1,4 @@
-C:\Users\RHALFC~1\AppData\Local\Temp\arduino_build_71882\libraries\SoftwareSerial\SoftwareSerial.cpp.o: \
+C:\Users\rhalf\AppData\Local\Temp\arduino_build_92814\libraries\SoftwareSerial\SoftwareSerial.cpp.o: \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\libraries\SoftwareSerial\src\SoftwareSerial.cpp \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/Arduino.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/binary.h \

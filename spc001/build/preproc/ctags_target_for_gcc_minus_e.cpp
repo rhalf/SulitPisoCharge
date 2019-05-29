@@ -1,5 +1,5 @@
-# 1 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino"
-# 1 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino"
+# 1 "C:\\Users\\rhalf\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino"
+# 1 "C:\\Users\\rhalf\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino"
 /*
 
     Project     :   Sulit Piso Charge
@@ -15,18 +15,18 @@
 
 
 */
-# 9 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino"
-# 10 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
-# 11 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
-# 12 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
-# 13 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
-# 14 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
-# 15 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
-# 16 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
-# 17 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
-# 18 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
+# 9 "C:\\Users\\rhalf\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino"
+# 10 "C:\\Users\\rhalf\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
+# 11 "C:\\Users\\rhalf\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
+# 12 "C:\\Users\\rhalf\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
+# 13 "C:\\Users\\rhalf\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
+# 14 "C:\\Users\\rhalf\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
+# 15 "C:\\Users\\rhalf\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
+# 16 "C:\\Users\\rhalf\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
+# 17 "C:\\Users\\rhalf\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
+# 18 "C:\\Users\\rhalf\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
 
-# 20 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
+# 20 "C:\\Users\\rhalf\\Documents\\GitHub\\SulitPisoCharge\\spc001\\spc001.ino" 2
 
 U8G2_ST7920_128X64_1_SW_SPI u8g2((&u8g2_cb_r0), /* clock=*/ 12, /* data=*/ 11, /* CS=*/ 10, /* reset=*/ 100);
 Timer tDisplay(Timer::MILLIS), tInterrupt(Timer::MILLIS), tLimit(Timer::MILLIS), tPower(Timer::MILLIS);
@@ -45,12 +45,8 @@ bool isLimit = false;
 void cbLimit() {
   uint32_t amount = storage.getCurrentAmount();
   uint32_t limit = storage.getLimit();
-  if (amount >= limit) {
-    isLimit = true;
-    buzzer.play();
-  } else {
-    isLimit = false;
-  }
+  if (amount >= limit) isLimit = true;
+  else isLimit = false;
 }
 
 void cbPower() {
@@ -106,7 +102,9 @@ void cbLcd12864() {
       u8g2.setCursor(x, 10);
       u8g2.print(Device::getCoin());
 
-      if (isLimit) u8g2.drawUTF8(x + 25, 10, Device::getLimit());
+      if (isLimit) {
+        if (Timer::getSecondsToggle(1)) u8g2.drawUTF8(x + 30, 10, Device::getLimit());
+      }
 
       u8g2.setCursor(x + 66, 10);
       u8g2.print(helper.toUtf8Currency(coinAcceptor.coinPulse));
@@ -118,44 +116,41 @@ void cbLcd12864() {
 
       u8g2.drawHLine(0, 23, 128);
 
+      //================================================================t0
       u8g2.setCursor(x, 34);
       u8g2.print(Device::getTerminal());
       u8g2.print("1");
       u8g2.setCursor(x + 66, 34);
-
       if (terminals[0].timeLapse > 0) u8g2.print(helper.toUtf8Time(terminals[0].timeLapse));
       else {
         if (storage.getMode() == 0) u8g2.print(Device::getVacant());
         else u8g2.print(Device::getFree());
       }
-
+      //================================================================t1
       u8g2.setCursor(x, 44);
       u8g2.print(Device::getTerminal());
       u8g2.print("2");
       u8g2.setCursor(x + 66, 44);
-
       if (terminals[1].timeLapse > 0) u8g2.print(helper.toUtf8Time(terminals[1].timeLapse));
       else {
         if (storage.getMode() == 0) u8g2.print(Device::getVacant());
         else u8g2.print(Device::getFree());
       }
-
+      //================================================================t2
       u8g2.setCursor(x, 54);
       u8g2.print(Device::getTerminal());
       u8g2.print("3");
       u8g2.setCursor(x + 66, 54);
-
       if (terminals[2].timeLapse > 0) u8g2.print(helper.toUtf8Time(terminals[2].timeLapse));
       else {
         if (storage.getMode() == 0) u8g2.print(Device::getVacant());
         else u8g2.print(Device::getFree());
       }
-
+      //================================================================t3
       u8g2.setCursor(x, 64);
       u8g2.print(Device::getTerminal());
       u8g2.print("4");
       u8g2.setCursor(x + 66, 64);
-
       if (terminals[3].timeLapse > 0) u8g2.print(helper.toUtf8Time(terminals[3].timeLapse));
       else {
         if (storage.getMode() == 0) u8g2.print(Device::getVacant());
