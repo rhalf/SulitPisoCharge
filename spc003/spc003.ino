@@ -234,7 +234,7 @@ void setup() {
   // put your setup code here, to run once:
 
   if (storage.getFirst() != 1) {
-    storage.format(190528);
+    storage.format(190711);
     storage.setFirmware(22);
     storage.setFirst(1);
   }
