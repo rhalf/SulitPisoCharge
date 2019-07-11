@@ -1,6 +1,9 @@
+#include <Arduino.h>
+#line 1 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+#line 1 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
 /*
     Project     :   Sulit Piso Charge
-    Version     :   2.1
+    Version     :   2.2
 
     Created by  :   Rhalf Wendel Caacbay
     Email       :   rhalfcaacbay@gmail.com
@@ -32,6 +35,31 @@ uint8_t index = 0;
 String space = " ";
 bool isLimit = false;
 
+#line 35 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void cbLimit();
+#line 42 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void cbPower();
+#line 49 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void cbDisplay();
+#line 53 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void cbLcd12864();
+#line 155 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void cbInterrupt();
+#line 164 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void serialEvent();
+#line 177 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void onReceived(void);
+#line 185 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void onCoin();
+#line 190 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void onShortPressed(uint8_t pin);
+#line 224 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void onLongPressed(uint8_t pin);
+#line 233 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void setup();
+#line 276 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void loop();
+#line 35 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
 void cbLimit() {
   uint32_t amount = storage.getCurrentAmount();
   uint32_t limit = storage.getLimit();
@@ -85,7 +113,9 @@ void cbLcd12864() {
 
       u8g2.drawUTF8( x, 60, Device::getPower());
       u8g2.setCursor( x + 48, 60);
-      u8g2.print(storage.getCurrentPower() / 1000.0);
+      float pKwh  = storage.getPkwh() / 100.0;
+      float power = storage.getCurrentPower() / 1000.0 / 1000.0;
+      u8g2.print(pKwh * power);
 
     } else {
 
@@ -233,7 +263,7 @@ void setup() {
 
   if (storage.getFirst() != 1) {
     storage.format(190528);
-    storage.setFirmware(20);
+    storage.setFirmware(22);
     storage.setFirst(1);
   }
 
@@ -283,3 +313,4 @@ void loop() {
 
   WatchDog::reset();
 }
+

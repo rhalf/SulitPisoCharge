@@ -1,6 +1,6 @@
 /*
     Project     :   Sulit Piso Charge
-    Version     :   2.1
+    Version     :   2.2
 
     Created by  :   Rhalf Wendel Caacbay
     Email       :   rhalfcaacbay@gmail.com
@@ -85,7 +85,9 @@ void cbLcd12864() {
 
       u8g2.drawUTF8( x, 60, Device::getPower());
       u8g2.setCursor( x + 48, 60);
-      u8g2.print(storage.getCurrentPower() / 1000.0);
+      float pKwh  = storage.getPkwh() / 100.0;
+      float power = storage.getCurrentPower() / 1000.0 / 1000.0;
+      u8g2.print(pKwh * power);
 
     } else {
 
@@ -233,7 +235,7 @@ void setup() {
 
   if (storage.getFirst() != 1) {
     storage.format(190528);
-    storage.setFirmware(20);
+    storage.setFirmware(22);
     storage.setFirst(1);
   }
 
