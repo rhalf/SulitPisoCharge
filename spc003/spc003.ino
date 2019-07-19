@@ -1,6 +1,6 @@
 /*
     Project     :   Sulit Piso Charge
-    Version     :   2.2
+    Version     :   2.3
 
     Created by  :   Rhalf Wendel Caacbay
     Email       :   rhalfcaacbay@gmail.com
@@ -19,7 +19,7 @@
 #include<WatchDog.h>
 
 U8G2_ST7920_128X64_1_SW_SPI u8g2(U8G2_R0, /* clock=*/ 12, /* data=*/ 11, /* CS=*/ 10, /* reset=*/ 100);
-Timer tDisplay(Timer::MILLIS), tInterrupt(Timer::MILLIS), tLimit(Timer::MILLIS), tPower(Timer::MILLIS);
+Timer tDisplay(Timer::MILLIS), tInterrupt(Timer::MILLIS), tLimit(Timer::MILLIS), tPower(Timer::SECONDS);
 Terminal terminals[4] = {Terminal(A0), Terminal(A1), Terminal(A2), Terminal(A3)};
 Buzzer buzzer = Buzzer(13, 1875, 50);
 BillCoinAcceptor coinAcceptor = BillCoinAcceptor(2);
@@ -41,9 +41,9 @@ void cbLimit() {
 
 void cbPower() {
   //standby power consumption of device is 3watts therefore
-  //float power = 3000.0 / 60.0;
-  //power = 50
-  storage.incrementPower(50);
+  //float power = 3000.0wh
+  storage.incrementPower(3000); //3000 milliwatts per hour
+  storage.incrementTime(3600);  // 3600 seconds per hour
 }
 
 void cbDisplay() {
@@ -79,15 +79,21 @@ void cbLcd12864() {
       u8g2.setCursor( x + 48, 40);
       u8g2.print(helper.toUtf8Currency(storage.getCurrentCredit()));
 
-      u8g2.drawUTF8( x, 50, Device::getServe());
+      u8g2.setCursor( x, 50);
+      u8g2.print(Device::getTrans());
+      u8g2.print("F");
       u8g2.setCursor( x + 48, 50);
-      u8g2.print(helper.toUtf8Time(storage.getCurrentServe()));
+      u8g2.print(storage.getCurrentTransF());
 
-      u8g2.drawUTF8( x, 60, Device::getPower());
+      u8g2.drawUTF8( x, 60, Device::getFree());
       u8g2.setCursor( x + 48, 60);
-      float pKwh  = storage.getPkwh() / 100.0;
-      float power = storage.getCurrentPower() / 1000.0 / 1000.0;
-      u8g2.print(pKwh * power);
+      u8g2.print(helper.toUtf8Currency(storage.getCurrentFree()));
+
+      //      u8g2.drawUTF8( x, 60, Device::getPower());
+      //      u8g2.setCursor( x + 48, 60);
+      //      float pKwh  = storage.getPkwh() / 100.0;
+      //      float power = storage.getCurrentPower() / 1000.0 / 1000.0;
+      //      u8g2.print(pKwh * power);
 
     } else {
 
@@ -188,10 +194,6 @@ void onCoin() {
 }
 
 void onShortPressed(uint8_t pin) {
-  coinAcceptor.coinPulse += storage.getMode();
-
-  //check if coin inserted
-  if (coinAcceptor.coinPulse == 0 ) return;
   //Process
   for (index = 0; index < 4; index++) {
     if (buttons[index].getPin() == pin) {
@@ -199,15 +201,24 @@ void onShortPressed(uint8_t pin) {
       if (!terminals[index].getState())
         if (coinAcceptor.coinPulse < storage.getMinimum())
           continue;
-      //process
-      buzzer.play();
 
       uint32_t coinValue = coinAcceptor.coinPulse;
-      uint32_t timeValue = coinAcceptor.coinPulse * storage.getRate();
+      uint32_t timeValue = coinValue * storage.getRate();
 
       //add to record
-      if (storage.getMode() == 0) storage.incrementAmount(coinValue);
-      if (storage.getMode() >= 1) storage.incrementCredit(coinValue);
+      if (storage.getMode() == 0) {
+        if (coinAcceptor.coinPulse == 0 ) return;
+        storage.incrementAmount(coinValue);
+      }
+
+      if (storage.getMode() == 1) {
+        uint8_t value = 1;
+        storage.incrementFree(value);
+        timeValue = value * storage.getRate();
+      }
+
+      //process
+      buzzer.play();
 
       //charger consumes 20watts per hour
       //float power = (20000.0 / 3600.0) * timeValue;
@@ -234,8 +245,8 @@ void setup() {
   // put your setup code here, to run once:
 
   if (storage.getFirst() != 1) {
-    storage.format(190711);
-    storage.setFirmware(22);
+    storage.format(190716);
+    storage.setFirmware(23);
     storage.setFirst(1);
   }
 
@@ -255,7 +266,7 @@ void setup() {
   tInterrupt.begin(Timer::FOREVER, 25, cbInterrupt);
 
   tLimit.begin(Timer::FOREVER, 10000, cbLimit);
-  tPower.begin(Timer::FOREVER, 60000, cbPower);
+  tPower.begin(Timer::FOREVER, 3600, cbPower);
 
   tDisplay.start();
   tInterrupt.start();
