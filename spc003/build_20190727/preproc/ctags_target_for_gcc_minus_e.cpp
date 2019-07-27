@@ -1,24 +1,34 @@
+# 1 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+# 1 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
 /*
+
     Project     :   Sulit Piso Charge
+
     Version     :   2.4
 
+
+
     Created by  :   Rhalf Wendel Caacbay
+
     Email       :   rhalfcaacbay@gmail.com
 
-*/
-#include<U8g2lib.h>
-#include<Timer.h>
-#include<Terminal.h>
-#include<Buzzer.h>
-#include<BillCoinAcceptor.h>
-#include<Storage.h>
-#include<Protocol.h>
-#include<Button.h>
-#include<Device.h>
-#include<Helper.h>
-#include<WatchDog.h>
 
-U8G2_ST7920_128X64_1_SW_SPI u8g2(U8G2_R0, /* clock=*/ 12, /* data=*/ 11, /* CS=*/ 10, /* reset=*/ 100);
+
+*/
+# 9 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+# 10 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino" 2
+# 11 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino" 2
+# 12 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino" 2
+# 13 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino" 2
+# 14 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino" 2
+# 15 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino" 2
+# 16 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino" 2
+# 17 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino" 2
+# 18 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino" 2
+
+# 20 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino" 2
+
+U8G2_ST7920_128X64_1_SW_SPI u8g2((&u8g2_cb_r0), /* clock=*/ 12, /* data=*/ 11, /* CS=*/ 10, /* reset=*/ 100);
 Timer tDisplay(Timer::MILLIS), tInterrupt(Timer::MILLIS), tLimit(Timer::MILLIS), tPower(Timer::SECONDS);
 Terminal terminals[4] = {Terminal(A0), Terminal(A1), Terminal(A2), Terminal(A3)};
 Buzzer buzzer = Buzzer(13, 1875, 50);
@@ -43,7 +53,7 @@ void cbPower() {
   //standby power consumption of device is 3watts therefore
   //float power = 3000.0wh
   storage.incrementPower(3000); //3000 milliwatts per hour
-  storage.incrementTime(3600);  // 3600 seconds per hour
+  storage.incrementTime(3600); // 3600 seconds per hour
 }
 
 void cbDisplay() {
