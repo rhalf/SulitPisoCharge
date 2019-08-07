@@ -1,6 +1,9 @@
+#include <Arduino.h>
+#line 1 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+#line 1 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
 /*
     Project     :   Sulit Piso Charge
-    Version     :   2.5
+    Version     :   2.4
 
     Created by  :   Rhalf Wendel Caacbay
     Email       :   rhalfcaacbay@gmail.com
@@ -32,6 +35,31 @@ uint8_t index = 0;
 String space = " ";
 bool isLimit = false;
 
+#line 35 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void cbLimit();
+#line 42 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void cbPower();
+#line 49 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void cbDisplay();
+#line 53 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void cbLcd12864();
+#line 161 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void cbInterrupt();
+#line 170 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void serialEvent();
+#line 183 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void onReceived(void);
+#line 191 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void onCoin();
+#line 196 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void onShortPressed(uint8_t pin);
+#line 235 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void onLongPressed(uint8_t pin);
+#line 244 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void setup();
+#line 287 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void loop();
+#line 35 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
 void cbLimit() {
   uint32_t amount = storage.getCurrentAmount();
   uint32_t limit = storage.getLimit();
@@ -97,58 +125,58 @@ void cbLcd12864() {
 
     } else {
 
-      u8g2.setCursor(x, 9);
+      u8g2.setCursor(x, 10);
       u8g2.print(Device::getCoin());
 
       if (isLimit) {
-        if (Timer::getSecondsToggle(1)) u8g2.drawUTF8(x + 30, 9, Device::getLimit());
+        if (Timer::getSecondsToggle(1)) u8g2.drawUTF8(x + 30, 10, Device::getLimit());
       }
 
-      u8g2.setCursor(x + 66, 9);
+      u8g2.setCursor(x + 66, 10);
       u8g2.print(helper.toUtf8Currency(coinAcceptor.coinPulse));
 
-      u8g2.setCursor(x, 19);
+      u8g2.setCursor(x, 20);
       u8g2.print(Device::getTime());
-      u8g2.setCursor(x + 66, 19);
+      u8g2.setCursor(x + 66, 20);
       u8g2.print(helper.toUtf8Time(coinAcceptor.coinPulse * storage.getRate()));
 
-      u8g2.drawHLine(0, 22, 128);
+      u8g2.drawHLine(0, 23, 128);
 
       //================================================================t0
-      u8g2.setCursor(x, 32);
+      u8g2.setCursor(x, 34);
       u8g2.print(Device::getTerminal());
       u8g2.print("1");
-      u8g2.setCursor(x + 66, 32);
+      u8g2.setCursor(x + 66, 34);
       if (terminals[0].timeLapse > 0) u8g2.print(helper.toUtf8Time(terminals[0].timeLapse));
       else {
         if (storage.getMode() == 0) u8g2.print(Device::getVacant());
         else u8g2.print(Device::getFree());
       }
       //================================================================t1
-      u8g2.setCursor(x, 42);
+      u8g2.setCursor(x, 44);
       u8g2.print(Device::getTerminal());
       u8g2.print("2");
-      u8g2.setCursor(x + 66, 42);
+      u8g2.setCursor(x + 66, 44);
       if (terminals[1].timeLapse > 0) u8g2.print(helper.toUtf8Time(terminals[1].timeLapse));
       else {
         if (storage.getMode() == 0) u8g2.print(Device::getVacant());
         else u8g2.print(Device::getFree());
       }
       //================================================================t2
-      u8g2.setCursor(x, 52);
+      u8g2.setCursor(x, 54);
       u8g2.print(Device::getTerminal());
       u8g2.print("3");
-      u8g2.setCursor(x + 66, 52);
+      u8g2.setCursor(x + 66, 54);
       if (terminals[2].timeLapse > 0) u8g2.print(helper.toUtf8Time(terminals[2].timeLapse));
       else {
         if (storage.getMode() == 0) u8g2.print(Device::getVacant());
         else u8g2.print(Device::getFree());
       }
       //================================================================t3
-      u8g2.setCursor(x, 62);
+      u8g2.setCursor(x, 64);
       u8g2.print(Device::getTerminal());
       u8g2.print("4");
-      u8g2.setCursor(x + 66, 62);
+      u8g2.setCursor(x + 66, 64);
       if (terminals[3].timeLapse > 0) u8g2.print(helper.toUtf8Time(terminals[3].timeLapse));
       else {
         if (storage.getMode() == 0) u8g2.print(Device::getVacant());
@@ -245,8 +273,8 @@ void setup() {
   // put your setup code here, to run once:
 
   if (storage.getFirst() != 1) {
-    storage.format(190807);
-    storage.setFirmware(25);
+    storage.format(190727);
+    storage.setFirmware(24);
     storage.setFirst(1);
   }
 
@@ -296,3 +324,4 @@ void loop() {
 
   WatchDog::reset();
 }
+

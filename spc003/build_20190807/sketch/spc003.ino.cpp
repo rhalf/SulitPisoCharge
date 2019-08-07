@@ -1,3 +1,6 @@
+#include <Arduino.h>
+#line 1 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+#line 1 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
 /*
     Project     :   Sulit Piso Charge
     Version     :   2.5
@@ -32,6 +35,31 @@ uint8_t index = 0;
 String space = " ";
 bool isLimit = false;
 
+#line 35 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void cbLimit();
+#line 42 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void cbPower();
+#line 49 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void cbDisplay();
+#line 53 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void cbLcd12864();
+#line 161 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void cbInterrupt();
+#line 170 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void serialEvent();
+#line 183 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void onReceived(void);
+#line 191 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void onCoin();
+#line 196 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void onShortPressed(uint8_t pin);
+#line 235 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void onLongPressed(uint8_t pin);
+#line 244 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void setup();
+#line 287 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
+void loop();
+#line 35 "C:\\Users\\rhalfcaacbay\\Documents\\GitHub\\SulitPisoCharge\\spc003\\spc003.ino"
 void cbLimit() {
   uint32_t amount = storage.getCurrentAmount();
   uint32_t limit = storage.getLimit();
@@ -296,3 +324,4 @@ void loop() {
 
   WatchDog::reset();
 }
+
